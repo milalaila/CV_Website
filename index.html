@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Website - Mila</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #0ea5e9;
+            --secondary-color: #06b6d4;
+            --accent-color: #f59e0b;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #0891b2 100%);
+        }
+
+        .container-fluid {
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .row {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            background: white;
+            animation: fadeIn 0.8s ease;
+        }
+
+        /* Left Column Styling */
+        .col-md-4 {
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            position: relative;
+            padding: 3rem 2rem !important;
+        }
+
+        .col-md-4::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .col-md-4 > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border: 5px solid white !important;
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4);
+            transition: all 0.4s ease;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotate(3deg);
+            box-shadow: 0 15px 40px rgba(14, 165, 233, 0.6);
+        }
+
+        .col-md-4 h1 {
+            font-size: 1.8rem;
+            color: var(--dark-bg);
+            margin-top: 1rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .col-md-4 .text-muted {
+            font-size: 1.1rem;
+            color: var(--primary-color) !important;
+            font-weight: 600;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .text-theme {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .text-theme::after {
+            display: none;
+        }
+
+        .col-md-4 .mb-4 {
+            animation: fadeInLeft 0.8s ease 0.4s both;
+        }
+
+        .d-flex.align-items-center {
+            padding: 0.6rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .d-flex.align-items-center:hover {
+            background: rgba(14, 165, 233, 0.05);
+            transform: translateX(5px);
+        }
+
+        .d-flex.align-items-center i {
+            font-size: 1.2rem;
+        }
+
+        .btn-outline-secondary {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary-color) !important;
+            color: var(--primary-color) !important;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-secondary:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+            color: white !important;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.4);
+        }
+
+        /* Right Column Styling */
+        .col-md-8 {
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #0891b2 100%) !important;
+            padding: 3rem !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .col-md-8::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .col-md-8 > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .col-md-8 h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3) !important;
+            animation: fadeInRight 0.8s ease;
+        }
+
+        .col-md-8 h2 i {
+            margin-right: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .col-md-8 p {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .col-md-8 h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .mb-5 {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .skill-badge {
+            background: rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white !important;
+            font-size: 0.95rem;
+            padding: 0.6rem 1.2rem !important;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-badge:hover {
+            background: rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card {
+            border: none !important;
+            border-radius: 15px !important;
+            margin-bottom: 1.5rem !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-body {
+            padding: 1.8rem !important;
+        }
+
+        .card-title {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text.text-muted {
+            color: #6b7280 !important;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-theme {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+            color: white !important;
+            border: none !important;
+            padding: 0.6rem 1.5rem !important;
+            border-radius: 25px !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-theme:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4);
+        }
+
+        .text-white-50 {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(30px, -50px) rotate(120deg);
+            }
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container-fluid {
+                padding: 1rem;
+            }
+
+            .col-md-4, .col-md-8 {
+                padding: 2rem 1.5rem !important;
+            }
+
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .col-md-4 h1 {
+                font-size: 1.5rem;
+            }
+
+            .col-md-8 h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Scroll Animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <!-- Left Column - Profile -->
+            <div class="col-md-4 bg-white p-4">
+                <div class="text-center mb-4">
+                    <img src="fotomila.jpeg" alt="Profile" class="rounded-circle profile-img mb-3 border border-3 border-light shadow">
+                    <h1 class="fw-bold">Mila Laila Rahmadhani</h1>
+                    <p class="text-muted">Back-end Developer</p>
+                </div>
+                
+                <div class="mb-4">
+                    <h5 class="text-theme mb-3">Kontak</h5>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="bi bi-geo-alt text-theme me-3"></i>
+                        <span>Dusun. Cibubuhan, RT/RW 08/04 Dsa. Mulyasari, Kec. Jatinagara, Kab. Ciamis, Jawa Barat.</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="bi bi-envelope text-theme me-3"></i>
+                        <span>milalailarahmadhani@gmail.com</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="bi bi-telephone text-theme me-3"></i>
+                        <span>+62 857-3306-5075</span>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <h5 class="text-theme mb-3">Media Sosial</h5>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="https://www.linkedin.com/in/mila-lailarahmadhani-9328ba284?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://github.com/milalaila" class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-github"></i></a>
+                        <a href="https://www.instagram.com/milalaila.ra?igsh=dWd2ZjZjd2s5N2Rw" class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Content -->
+            <div class="col-md-8 bg-theme text-white p-4">
+                <!-- Profile Section -->
+                <div class="mb-5 animate-on-scroll">
+                    <h2 class="mb-3 pb-2 border-bottom border-white"><i class="bi bi-person me-2"></i> Profil</h2>
+                    <p>Saya seorang individu yang memiliki minat besar di bidang pengembangan perangkat lunak dan teknologi informasi. Terampil dalam dasar-dasar pemrograman, pembuatan website, dan pengelolaan database. Teliti, cepat belajar, dan siap berkontribusi untuk mendukung pengembangan sistem serta inovasi digital.</p>
+                </div>
+                
+                <!-- Experience Section -->
+                <div class="mb-5 animate-on-scroll">
+                    <h2 class="mb-3 pb-2 border-bottom border-white"><i class="bi bi-briefcase me-2"></i> Pengalaman</h2>
+                    <div class="mb-3">
+                        <h4>Projek 1</h4>
+                        <p>Mengembangkan website data siswa dengan menggunakan Laravel dan MySQL</p>
+                    </div>
+                    <div class="mb-3">
+                        <h4>Projek 2</h4>
+                        <p>membuat aplikasi rental motor sebagai uji seritifikasi keahlian dengan menggunakan PHP Native dan MySQL</p>
+                    </div>
+                    <div class="mb-3">
+                        <h4>Projek 3</h4>
+                        <p>Membuat web desa untuk menampilkan profil, berita, dan data penduduk menggunkan Laravel dan MySQL</p>
+                    </div>
+                </div>
+                
+                <!-- Skills Section -->
+                <div class="mb-5 animate-on-scroll">
+                    <h2 class="mb-3 pb-2 border-bottom border-white"><i class="bi bi-tools me-2"></i> Keterampilan</h2>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge skill-badge p-2">Pemrograman dasar HTML, CSS, PHP [menengah]</span>
+                        <span class="badge skill-badge p-2">Pengelolaan database MySQL [Menengah]</span>
+                        <span class="badge skill-badge p-2">Pembuatan dan pengelolaan website sederhana [Menengah]</span>
+                        <span class="badge skill-badge p-2">Desain antarmuka (UI) dengan Bootstrap atau Figma [Menengah]</span>
+                    </div>
+                </div>
+                
+                <!-- Education Section -->
+                <div class="mb-5 animate-on-scroll">
+                    <h2 class="mb-3 pb-2 border-bottom border-white"><i class="bi bi-book me-2"></i> Pendidikan</h2>
+                    <div class="mb-3">
+                        <h4>SMK Negeri 1 Kawali</h4>
+                        <p>Jurusan Rekayasa Perangkat Lunak</p>
+                        <p class="text-white-50">2023-2026</p>
+                        <h4>MTSs Rijalul Hikam</h4>
+                        <p class="text-white-50">2020-2023</p>
+                        <h4>SD Negeri 1 Mulyasari</h4>
+                        <p class="text-white-50">2014-2020</p>
+                    </div>
+                </div>
+                
+                <!-- Language Section -->
+                <div class="mb-5 animate-on-scroll">
+                    <h2 class="mb-3 pb-2 border-bottom border-white"><i class="bi bi-translate me-2"></i> Bahasa</h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div style="background: rgba(255,255,255,0.9); padding: 1rem; border-radius: 10px;">
+                                <h4 style="color: #0ea5e9;">Bahasa Indonesia</h4>
+                                <p style="color: #0f172a; margin-bottom: 0;">Fasih</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div style="background: rgba(255,255,255,0.9); padding: 1rem; border-radius: 10px;">
+                                <h4 style="color: #0ea5e9;">Bahasa Inggris</h4>
+                                <p style="color: #0f172a; margin-bottom: 0;">Dasar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projects Section -->
+                <div class="animate-on-scroll">
+                    <h2 class="mb-3 pb-2 border-bottom border-white"><i class="bi bi-folder me-2"></i> Proyek</h2>
+                    <div class="card bg-white text-dark mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title">Sewa Motor</h4>
+                            <p class="card-text text-muted">2025</p>
+                            <p class="card-text">Website penyewaan motor ini dibuat menggunakan PHP Native sebagai bahasa pemrograman utama tanpa framework tambahan. Sistem ini dirancang untuk mempermudah proses penyewaan motor antara pelanggan dan admin. Pengguna dapat melihat daftar motor yang tersedia, mengecek detail motor, serta melakukan penyewaan secara langsung melalui halaman web.</p>
+                            <a href="rentalmotor.png" class="btn btn-theme btn-sm">Lihat</a>
+                        </div>
+                    </div>
+                    <div class="card bg-white text-dark mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title">Website Desa</h4>
+                            <p class="card-text text-muted">2024</p>
+                            <p class="card-text">Website desa ini dibuat untuk memberikan kemudahan bagi masyarakat dalam mengakses informasi dan layanan administrasi desa secara online. Melalui website ini, warga dapat memperoleh berita terkini, pengumuman resmi, profil desa, serta data aparatur dan lembaga desa.</p>
+                            <a href="WebDesaMulyasari.png" class="btn btn-theme btn-sm">Lihat</a>
+                        </div>
+                    </div>
+                    <div class="card bg-white text-dark mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title">Management Siswa</h4>
+                            <p class="card-text text-muted">2025</p>
+                            <p class="card-text">Website manajemen siswa ini dibuat untuk mempermudah pengelolaan data siswa di lingkungan sekolah secara digital. Melalui sistem ini, admin dapat menambahkan, mengubah, menghapus, dan menampilkan data siswa dengan cepat menggunakan fitur CRUD (Create, Read, Update, Delete).</p>
+                            <a href="data siswa.png" class="btn btn-theme btn-sm">Lihat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

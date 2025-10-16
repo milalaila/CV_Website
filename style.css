@@ -1,0 +1,33 @@
+/* Custom CSS minimal hanya untuk warna tema */
+:root {
+    --bs-primary: #4CAF50;
+    --bs-primary-rgb: 76, 175, 80;
+}
+
+.bg-theme {
+    background-color: var(--bs-primary);
+}
+
+.text-theme {
+    color: var(--bs-primary);
+}
+
+.btn-theme {
+    background-color: white;
+    color: var(--bs-primary);
+}
+
+.btn-theme:hover {
+    background-color: #f0f0f0;
+    color: var(--bs-primary);
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.skill-badge {
+    background-color: rgba(255, 255, 255, 0.2);
+}
