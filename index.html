@@ -373,6 +373,67 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Progress Bar Styles */
+.progress-container {
+    margin-bottom: 20px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.progress {
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
+    width: 0;
+    transition: width 1.5s ease-in-out;
+}
+
+/* Animation Classes */
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-left {
+    animation-name: slideInLeft;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation-name: fadeIn;
+}
     </style>
 </head>
 <body>
@@ -421,32 +482,48 @@
                 </div>
                 
                 <!-- Experience Section -->
-                <div class="mb-5 animate-on-scroll">
-                    <h2 class="mb-3 pb-2 border-bottom border-white"><i class="bi bi-briefcase me-2"></i> Pengalaman</h2>
-                    <div class="mb-3">
-                        <h4>Projek 1</h4>
-                        <p></p>
-                    </div>
-                    <div class="mb-3">
-                        <h4>Projek 2</h4>
-                        <p>membuat aplikasi rental motor sebagai uji seritifikasi keahlian dengan menggunakan PHP Native dan MySQL</p>
-                    </div>
-                    <div class="mb-3">
-                        <h4>Projek 3</h4>
-                        <p>Membuat web desa untuk menampilkan profil, berita, dan data penduduk menggunkan Laravel dan MySQL</p>
-                    </div>
-                </div>
                 
                 <!-- Skills Section -->
-                <div class="mb-5 animate-on-scroll">
-                    <h2 class="mb-3 pb-2 border-bottom border-white"><i class="bi bi-tools me-2"></i> Keterampilan</h2>
-                    <div class="d-flex flex-wrap gap-2">
-                        <span class="badge skill-badge p-2">Pemrograman dasar HTML, CSS, PHP [menengah]</span>
-                        <span class="badge skill-badge p-2">Pengelolaan database MySQL [Menengah]</span>
-                        <span class="badge skill-badge p-2">Pembuatan dan pengelolaan website sederhana [Menengah]</span>
-                        <span class="badge skill-badge p-2">Desain antarmuka (UI) dengan Bootstrap atau Figma [Menengah]</span>
-                    </div>
-                </div>
+            <div class="mb-5 animate-on-scroll">
+            <div class="mb-5">
+    <h2 class="mb-3 pb-2 border-bottom border-white"><i class="bi bi-tools me-2"></i> Keterampilan</h2>
+    <div class="progress-container animated slide-in-left">
+        <div class="progress-label">
+            <span>Pemrograman dasar HTML, CSS, PHP </span>
+            <span>Menengah</span>
+        </div>
+        <div class="progress">
+            <div class="progress-bar" data-width="70%"></div>
+        </div>
+    </div>
+    <div class="progress-container animated slide-in-left" style="animation-delay: 0.1s">
+        <div class="progress-label">
+            <span>Pengelolaan database MySQL</span>
+            <span>Pemula</span>
+        </div>
+        <div class="progress">
+            <div class="progress-bar" data-width="50%"></div>
+        </div>
+    </div>
+    <div class="progress-container animated slide-in-left" style="animation-delay: 0.2s">
+        <div class="progress-label">
+            <span>Pembuatan dan pengelolaan website sederhana </span>
+            <span>Pemula</span>
+        </div>
+        <div class="progress">
+            <div class="progress-bar" data-width="50%"></div>
+        </div>
+    </div>
+    <div class="progress-container animated slide-in-left" style="animation-delay: 0.3s">
+        <div class="progress-label">
+            <span>Desain antarmuka (UI) dengan Bootstrap atau Figma [Menengah]</span>
+            <span>Pemula</span>
+        </div>
+        <div class="progress">
+            <div class="progress-bar" data-width="50%"></div>
+        </div>
+    </div>
+</div>
                 
                 <!-- Education Section -->
                 <div class="mb-5 animate-on-scroll">
@@ -455,7 +532,7 @@
                         <h4>SMK Negeri 1 Kawali</h4>
                         <p>Jurusan Rekayasa Perangkat Lunak</p>
                         <p class="text-white-50">2023-2026</p>
-                        <h4>MTSs Rijalul Hikam</h4>
+                        <h4>MTS Rijalul Hikam</h4>
                         <p class="text-white-50">2020-2023</p>
                         <h4>SD Negeri 1 Mulyasari</h4>
                         <p class="text-white-50">2014-2020</p>
@@ -488,6 +565,7 @@
                         <div class="card-body">
                             <h4 class="card-title">Sewa Motor</h4>
                             <p class="card-text text-muted">2025</p>
+                            <p class="card-text">membuat aplikasi rental motor sebagai uji seritifikasi keahlian dengan menggunakan PHP Native dan MySQL</p>
                             <p class="card-text">Website penyewaan motor ini dibuat menggunakan PHP Native sebagai bahasa pemrograman utama tanpa framework tambahan. Sistem ini dirancang untuk mempermudah proses penyewaan motor antara pelanggan dan admin. Pengguna dapat melihat daftar motor yang tersedia, mengecek detail motor, serta melakukan penyewaan secara langsung melalui halaman web.</p>
                             <a href="rentalmotor.png" class="btn btn-theme btn-sm">Lihat</a>
                         </div>
@@ -496,6 +574,7 @@
                         <div class="card-body">
                             <h4 class="card-title">Website Desa</h4>
                             <p class="card-text text-muted">2024</p>
+                            <p class="card=text">Membuat web desa untuk menampilkan profil, berita, dan data penduduk menggunkan Laravel dan MySQL</p>
                             <p class="card-text">Website desa ini dibuat untuk memberikan kemudahan bagi masyarakat dalam mengakses informasi dan layanan administrasi desa secara online. Melalui website ini, warga dapat memperoleh berita terkini, pengumuman resmi, profil desa, serta data aparatur dan lembaga desa.</p>
                             <a href="WebDesaMulyasari.png" class="btn btn-theme btn-sm">Lihat</a>
                         </div>
@@ -534,8 +613,43 @@
         document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
         });
+        document.addEventListener('DOMContentLoaded', function() {
+    // Fungsi untuk menganimasikan progress bar
+    function animateProgressBars() {
+        const progressBars = document.querySelectorAll('.progress-bar');
+        
+        progressBars.forEach(bar => {
+            const width = bar.getAttribute('data-width');
+            
+            // Set lebar progress bar setelah delay kecil
+            setTimeout(() => {
+                bar.style.width = width;
+            }, 500);
+        });
+    }
+    
+    // Jalankan animasi saat halaman dimuat
+    setTimeout(animateProgressBars, 300);
+    
+    // Opsional: Jalankan animasi saat bagian keterampilan terlihat di viewport
+    const skillsSection = document.querySelector('.mb-5');
+    
+    if (skillsSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateProgressBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(skillsSection);
+    }
+});
     </script>
 </body>
 </html>
+
 
 
